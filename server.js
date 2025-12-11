@@ -17,6 +17,11 @@ connectDB();
 // Routes
 app.use("/api", leadRoutes);
 
+// Default route
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
 // Cron job every 5 minutes
 cron.schedule("*/5 * * * *", () => {
   console.log("Running 5 min CRON job...");
